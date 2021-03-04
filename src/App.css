@@ -19,11 +19,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  //justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  transition: 1s ease;
+  background-color: white;
+}
+
+.App-header::before{
+  content: '';
   background-size: cover;
-  transition: 1s;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 1;
 }
 
 .App-link {
@@ -43,23 +53,40 @@
   color: #555
 }
 
-.main-background{
-  transition: 1s;
+.main-background::before{
+  transition: 1s ease;
   background-image: url(imgs/mateus-main.jpg);
   background-position: center;
   background-size: 100%;
 }
 
-.bio-background{
-  transition: 1s;
+.bio-background::before{
+  transition: 1s ease;
   background-image: url(imgs/mateus-bio.jpg);
   background-position: right;
   background-size: 150%;
+  opacity: 0.8;
 }
 
-.education-background{
-  transition: 1s;
+.education-background::before{
+  transition: 1s ease;
   background-image: url(imgs/mateus-education.jpg);
   background-position: left;
   background-size: 150%;
+}
+
+.deactive {
+  display: none;
+}
+
+
+.main-menu, .sections {
+  position: relative;
+}
+
+.sections {
+  background: rgba(255,255,255,0.7);
+  border-radius: 30;
+  border-radius: 10px;
+  transition: 1s ease;
 }
