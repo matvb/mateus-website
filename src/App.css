@@ -23,7 +23,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
   background-size: cover;
-  transition: 0.3s;
+  transition: 1s;
 }
 
 .App-link {
@@ -46,14 +46,20 @@
 .main-background{
   transition: 1s;
   background-image: url(imgs/mateus-main.jpg);
+  background-position: center;
+  background-size: 100%;
 }
 
 .bio-background{
   transition: 1s;
   background-image: url(imgs/mateus-bio.jpg);
+  background-position: right;
+  background-size: 150%;
 }
 
 .education-background{
   transition: 1s;
   background-image: url(imgs/mateus-education.jpg);
+  background-position: left;
+  background-size: 150%;
 }
