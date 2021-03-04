@@ -1,34 +1,56 @@
 import React, { useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Bio from './components/Bio';
 
 function Home(props) {
     const [isBackgroundClass, setBackgroundClass] = useState('main-background');
+    const [isBioActive, setBioActive] = useState(false);
+    const [isEducationActive, setEducationActive] = useState(false);
 
 
-    const changeBackground = (backgroundClass) => {
-        setBackgroundClass(backgroundClass);
+    const clickTitle = () => {
+        setBackgroundClass('main-background');
+        setBioActive(false);
+        setEducationActive(false);
+    }
+
+    const clickBio = () => {
+        setBackgroundClass('bio-background');
+        setBioActive(true);
+        setEducationActive(false);
+    }
+
+    const clickEducation = () => {
+        setBackgroundClass('education-background');
+        setBioActive(false);
+        setEducationActive(true);
     }
 
 
     return (
     <header className={'App-header ' + isBackgroundClass}>
-        <h1 className="title-name" onClick={() => changeBackground('main-background')}>Mateus Villas Boas</h1>
-        <div className='row'>        
-            <div className='col'>
-                <div className='btn' onClick={() => changeBackground('bio-background')}>
-                    Bio
+        <div className="main-menu">
+            <h1 className="title-name" onClick={() => clickTitle() }>Mateus Villas Boas</h1>
+            <div className='row'>        
+                <div className='col'>
+                    <div className='btn' onClick={() => clickBio()}>
+                        Bio
+                    </div>
+                </div>
+                <div className='col'>
+                    <div className='btn' onClick={() => clickEducation()}>
+                        Education
+                    </div>
+                </div>
+                <div className='col'>
+                    <div className='btn'>
+                        Experience
+                    </div>
                 </div>
             </div>
-            <div className='col'>
-                <div className='btn' onClick={() => changeBackground('education-background')}>
-                    Education
-                </div>
-            </div>
-            <div className='col'>
-                <div className='btn'>
-                    Experience
-                </div>
-            </div>
+        </div>
+        <div className='sections'>
+            <Bio classes={isBioActive ? 'active' : 'deactive'} />
+
         </div>
     </header>
     );
