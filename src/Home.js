@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Bio from './components/Bio';
 import Education from './components/Education';
+import Experience from './components/Experience';
 import Button from '@material-ui/core/Button';
 import Slide from '@material-ui/core/Slide';
 
@@ -8,32 +9,44 @@ function Home(props) {
     const [isBackgroundClass, setBackgroundClass] = useState('main-background');
     const [isBioActive, setBioActive] = useState(false);
     const [isEducationActive, setEducationActive] = useState(false);
+    const [isExperienceActive, setExperienceActive] = useState(false);
 
+
+    const setAllFalse = () => {
+        setBioActive(false);
+        setEducationActive(false);
+        setExperienceActive(false);
+    }
 
     const clickTitle = () => {
         setBackgroundClass('main-background');
-        setBioActive(false);
-        setEducationActive(false);
+        setAllFalse();
     }
 
     const clickBio = () => {
         setBackgroundClass('bio-background');
+        setAllFalse();
         setBioActive(true);
-        setEducationActive(false);
     }
 
     const clickEducation = () => {
         setBackgroundClass('education-background');
-        setBioActive(false);
+        setAllFalse();
         setEducationActive(true);
+    }
+
+    const clickExperience = () => {
+        setBackgroundClass('education-background');
+        setAllFalse();
+        setExperienceActive(true);
     }
 
 
     return (
-    <div>
+    <div className='container'>
         <header className={'App-header ' + isBackgroundClass}>
             <div className="main-menu">
-                <h1 className="title-name" onClick={() => clickTitle() }>Mateus Villas Boas</h1>
+                <h1 className="title-name" style={{position:'relative'}} onClick={() => clickTitle() }>Mateus Villas Boas</h1>
                 <div className='row'>        
                     <div className='col'>
                         <div className='btn' onClick={() => clickBio()}>
@@ -46,27 +59,17 @@ function Home(props) {
                         </div>
                     </div>
                     <div className='col'>
-                        <Button variant="contained" color="primary" onClick={() => clickEducation()}>
+                        <Button variant="contained" color="primary" onClick={() => clickExperience()}>
                             Experience
                         </Button>
                     </div>
                 </div>
             </div>
         </header>
-        <div className='sections'>
-            <div className='row justify-content-end'>
-                <Slide direction="right" timeout={1000} in={isEducationActive}   >
-                    <h1 style={{color: 'black'}}> UFRJ </h1>
-                </Slide>
-                <Slide direction="left" timeout={1000} in={isBioActive}   >
-                    <div className='col-6'>
-                        <Bio classes={'active'} />
-
-                    </div>
-                </Slide>
-            </div>
-        
-
+        <div className='section-containers' style={{margin: 'auto', position: 'relative'}}>
+            <Bio classes={isBioActive ? 'active' : 'deactive'} />   
+            <Education classes={isEducationActive ? 'active' : 'deactive'} /> 
+            <Experience classes={isExperienceActive ? 'active' : 'deactive'} /> 
         </div>
      </div>
     );

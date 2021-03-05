@@ -1,5 +1,6 @@
 body {
   overflow: hidden;
+  height: 100vh;
 }
 
 .App {
@@ -78,23 +79,44 @@ body {
   background-size: 150%;
 }
 
-.deactive {
-  display: none;
+section.deactive {
+  transition: 1s ease;
+  visibility: hidden;
 }
 
-
-.main-menu, .sections {
-  position: relative;
+section.deactive.bio-section{
+  transform: translateX(100vw);
 }
 
-.sections section {
-  background: rgba(255,255,255,0.7);
-  border-radius: 30;
-  border-radius: 10px;
+section.deactive.education-section {
+  transform: translateX(-100vw);
+}
+
+section.deactive.experience-section {
+  transform: translateX(-100vw);
+}
+
+section.active {
   transition: 1s ease;
 }
 
-.sections {
-  max-width: 50vw;
-  margin: auto;
+
+section.sections {
+ min-width: 500px;
+ margin: auto;
+}
+
+section.sections:not(:last-child) {
+  position: absolute;
+ }
+
+section.sections .col{
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+}
+
+div.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }

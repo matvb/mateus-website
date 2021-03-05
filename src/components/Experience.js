@@ -1,13 +1,13 @@
 import React from 'react'
 
-function Bio(props) {
+function Experience(props) {
 
 
     return (
-    <section className={props.classes + ' bio-section sections'} style={{color: 'black'}}>
-        <div className='row justify-content-end'>
+        <section className={props.classes + ' experience-section sections'} style={{color: 'black'}}>
+        <div className='row justify-content-start'>
             <div className='col col-6'>
-                <h2> BIO</h2>
+                <h2> Experience</h2>
                 <p style={{textAlign:'left'}}>
                 Studying technology since 2012.
                 <br/>
@@ -24,4 +24,4 @@ function Bio(props) {
     );
 }
 
-export default Bio;
+export default Experience;
